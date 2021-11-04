@@ -7,7 +7,7 @@ class Input extends Component {
   };
 
   addTodo = () => {
-    const task = { action: this.state.action };
+    const task = { action: this.state.action, title: this.state.action };
 
     if (task.action && task.action.length > 0) {
       axios

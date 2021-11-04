@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import _ from "lodash";
-import { Search } from "semantic-ui-react";
+import { Search, Label } from "semantic-ui-react";
 
 class SearchBar extends Component {
   constructor() {
@@ -10,17 +10,10 @@ class SearchBar extends Component {
       isLoading: false,
       value: "",
       results: [],
-
-      searcharray: {
-        Events: {
-          name: "Events",
-          results: [],
-        },
-        Users: {
-          name: "Users",
-          results: [],
-        },
-      },
+      options: [],
+      users: [],
+      events: [],
+      commonarr: [],
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -31,45 +24,41 @@ class SearchBar extends Component {
     this.setState({ isLoading: true, value });
 
     setTimeout(() => {
-      const re = new RegExp(_.escapeRegExp(this.state.value), "i");
+      const re = new RegExp(this.state.value, "i");
       const isMatch = (result) => re.test(result.name);
 
-      const filteredResults = _.reduce(
-        this.state.searcharray,
-        (memo, data, name) => {
-          const results = _.filter(data.results, isMatch);
-          if (results.length) memo[name] = { name, results }; // eslint-disable-line no-param-reassign
-
-          return memo;
-        },
-        {}
-      );
+      const results = this.state.options
+        .filter(isMatch)
+        .map((result) => ({ ...result, key: result.name }));
 
       this.setState({
         isLoading: false,
-        results: filteredResults,
+        results: results,
       });
-    }, 10);
+    }, 500);
   };
 
-  resultRenderer({ name, rank, empid, location, email, description }) {
+  resultRenderer({ name, rank, empid, description }) {
     if (empid) {
       return (
-        <div>
-          {email && <div className="price">{email}</div>}
-          {name && <div className="title">{name}</div>}
-          {rank && empid && location && (
-            <div className="description">
-              {rank}, {empid}, {location}
-            </div>
-          )}
+        <div className="category">
+          <div className="name"> User </div>
+          <div className="results">
+            {empid && <div className="price">{empid}</div>}
+            {name && <div className="title">{name}</div>}
+            {rank && <div className="description">{rank}</div>}
+          </div>
         </div>
       );
     } else {
       return (
-        <div>
-          {name && <div className="title">{name}</div>}
-          {description && <div className="description">{description}</div>}
+        <div className="category">
+          <div className="name"> Event </div>
+
+          <div className="results">
+            {name && <div className="title">{name}</div>}
+            {description && <div className="description">{description}</div>}
+          </div>
         </div>
       );
     }
@@ -84,12 +73,27 @@ class SearchBar extends Component {
     this.getEvents();
   }
 
+  componentDidUpdate() {
+    this.flatarray();
+  }
+
+  flatarray = () => {
+    // console.log(this.state.commonarr.flat(1));
+    this.state.options = this.state.commonarr.flat(1);
+  };
+
   getUsers = () => {
     axios
       .get("/api/users")
       .then((usersres) => {
         if (usersres.data) {
-          this.state.searcharray.Users.results = usersres.data;
+          // this.setState({
+          //   options: usersres.data,
+          // });
+
+          this.setState({
+            commonarr: [...this.state.commonarr, usersres.data],
+          });
         }
       })
       .catch((err) => console.log(err));
@@ -100,7 +104,12 @@ class SearchBar extends Component {
       .get("/api/events")
       .then((eventsres) => {
         if (eventsres.data) {
-          this.state.searcharray.Events.results = eventsres.data;
+          // this.setState({
+          //   options: eventsres.data,
+          // });
+          this.setState({
+            commonarr: [...this.state.commonarr, eventsres.data],
+          });
         }
       })
       .catch((err) => console.log(err));
@@ -122,7 +131,6 @@ class SearchBar extends Component {
         onResultSelect={this.handleResultSelect}
         results={results}
         value={value}
-        category
       />
     );
   }

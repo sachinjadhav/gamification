@@ -4,21 +4,32 @@ import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
+import SwipeableDrawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 
-import arena_logo from "../assets/logo/arena.svg";
+import arena_logo from "../assets/logo/a9.png";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import HomeIcon from "@mui/icons-material/Home";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import HelpCenterIcon from "@mui/icons-material/HelpCenter";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import LoginIcon from "@mui/icons-material/Login";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import Avatar from "@mui/material/Avatar";
+import KudosIcon from "@mui/icons-material/Celebration";
+import MarketplaceIcon from "@mui/icons-material/BusinessCenter";
+
+// import sachin image
+
+import sj from "../assets/images/profile/sj.png";
+
+import Avatar from "react-avatar";
 
 // import { Stack } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+
+import QuickProfile from "../../src/pages/Home/quickprofile";
 
 export const NavBar = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -36,6 +47,7 @@ export const NavBar = () => {
       children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
     };
   }
+
   function stringToColor(string) {
     let hash = 0;
     let i;
@@ -80,7 +92,7 @@ export const NavBar = () => {
               <div className="appbartext">Points</div>
             </Link>
           </IconButton>
-          <IconButton>
+          {/* <IconButton>
             <Link to="/login" className="ui appbar link">
               <LoginIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">Login</div>
@@ -95,28 +107,53 @@ export const NavBar = () => {
               <AppRegistrationIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">Register</div>
             </Link>
-          </IconButton>
+          </IconButton> */}
 
-          <IconButton>
-            <Avatar {...stringAvatar("Steve Jobs")} />
-          </IconButton>
+          {["right"].map((anchor) => (
+            <React.Fragment key={anchor}>
+              <Button onClick={toggleDrawer(anchor, true)}>
+                {/* <Avatar {...stringAvatar("Steve Jobs")} /> */}
+                <Avatar
+                  twitterHandle="sitebase"
+                  name="Sachin Jadhav"
+                  size="45"
+                  round="30px"
+                  src={sj}
+                />
+              </Button>
+              <SwipeableDrawer
+                anchor={anchor}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+                onOpen={toggleDrawer(anchor, true)}
+              >
+                {list(anchor)}
+              </SwipeableDrawer>
+            </React.Fragment>
+          ))}
         </section>
       </>
     );
-    // }
   };
 
-  const handleChange = (event) => {
-    // setAuth(event.target.checked);
+  const [state, setState] = React.useState({
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
   };
 
-  const handleMenu = (event) => {
-    // setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    // setAnchorEl(null);
-  };
+  // quick profile on sidebar
+  const list = (anchor) => <QuickProfile />;
 
   return (
     <div>
@@ -141,6 +178,18 @@ export const NavBar = () => {
             <Link to="/helpcenter" className="ui appbar link">
               <HelpCenterIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">Help Center</div>
+            </Link>
+          </IconButton>
+          <IconButton>
+            <Link to="/kudos" className="ui appbar link">
+              <KudosIcon style={{ height: 30, width: 30 }} />
+              <div className="appbartext">Kudos</div>
+            </Link>
+          </IconButton>
+          <IconButton>
+            <Link to="/helpcenter" className="ui appbar link">
+              <MarketplaceIcon style={{ height: 30, width: 30 }} />
+              <div className="appbartext">Marketplace</div>
             </Link>
           </IconButton>
 

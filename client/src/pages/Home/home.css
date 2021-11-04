@@ -182,3 +182,29 @@ input[type="text"]:hover {
     color: "white" !important;
     text-align: "left" !important;
 }
+
+.ui.search>.results {
+    width: 100% !important;
+}
+
+.searchList {
+    font-weight: bold !important;
+}
+
+.ui.category.search>.results .category>.name {
+    color: rgba(50, 12, 218) !important;
+}
+
+.ui.search>.results .result .price {
+    color: #00000066 !important;
+}
+
+.ui.feed>.event>.content .extra.images img {
+    width: 800px !important;
+}
+
+.home_select {
+    margin: 0 !important;
+    vertical-align: bottom !important;
+    margin-left: 10px !important;
+}
