@@ -4,6 +4,11 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Avatar from "react-avatar";
+import IconButton from "@mui/material/IconButton";
+import { styled, useTheme } from "@mui/material/styles";
+
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import { Divider, Segment, Statistic } from "semantic-ui-react";
 
@@ -21,15 +26,11 @@ class QuickProfile extends Component {
   render() {
     return (
       <div>
-        <Box
-          sx={{ width: 400 }}
-          role="presentation"
-          //   onClick={toggleDrawer(anchor, false)}
-          //   onKeyDown={toggleDrawer(anchor, false)}
-        >
+        <Box sx={{ width: 400, marginTop: -5 }} role="presentation">
           <Grid container style={{ textAlign: "center" }}>
             <Grid item xs={12}>
               <img src={profilebanner} />
+
               <Avatar
                 twitterHandle="sitebase"
                 name="Sachin Jadhav"

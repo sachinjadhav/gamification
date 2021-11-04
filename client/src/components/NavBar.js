@@ -19,6 +19,9 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import KudosIcon from "@mui/icons-material/Celebration";
 import MarketplaceIcon from "@mui/icons-material/BusinessCenter";
 
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 // import sachin image
 
 import sj from "../assets/images/profile/sj.png";
@@ -153,7 +156,17 @@ export const NavBar = () => {
   };
 
   // quick profile on sidebar
-  const list = (anchor) => <QuickProfile />;
+  const list = (anchor) => {
+    return (
+      <div>
+        <IconButton onClick={toggleDrawer(anchor, false)}>
+          <ChevronLeftIcon style={{ color: "white" }} />
+        </IconButton>
+
+        <QuickProfile />
+      </div>
+    );
+  };
 
   return (
     <div>
