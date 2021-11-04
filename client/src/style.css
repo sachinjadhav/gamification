@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "roboto";
+    font-style: normal;
+    font-weight: normal;
+    src: local("roboto"), url("./assets/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Furtiger";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Furtiger"), url("./assets/fonts/frutiger-lt-pro/FrutigerLTProLight.woff") format("truetype");
+}
+
+@font-face {
+    font-family: "Frutiger LT Pro 55 Roman";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/frutiger-lt-pro/Linotype  FrutigerLTProRoman.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Frutiger LT Pro 56 Italic";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Frutiger LT Pro 56 Italic"), url("./assets/fonts/frutiger-lt-pro/Linotype  FrutigerLTProItalic.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Frutiger LT Pro 47";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Frutiger LT Pro 47"), url("./assets/fonts/frutiger-lt-pro/Linotype  FrutigerLTProLightCn.woff") format("woff");
+}

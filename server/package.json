@@ -1,0 +1,21 @@
+{
+  "name": "arena-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8",
+    "n": "^7.5.0",
+    "stable": "^0.1.8",
+    "whatwg-url": "^9.1.0"
+  }
+}

@@ -1,0 +1,184 @@
+/* NavBar Styling */
+
+.ui.menu:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* Jumbotron/Message styling */
+
+.ui.message.message-container {
+    text-align: center;
+    padding: 50px;
+    box-shadow: 0;
+    margin: 0;
+    height: 370px;
+    /* max-width: 100%; */
+    /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
+    /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
+    background-size: cover;
+    /* background-image: url("assets/images/home/home_9.png"); */
+    box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 30%);
+}
+
+
+/* UserForm styling */
+
+.form-container {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+
+/* UserForm alert message */
+
+.ui.alertMssg {
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.Footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: auto;
+    background-color: rgb(197 196 196 / 65%);
+    padding-left: 1.5rem;
+    padding-top: 5px;
+    /* font-family: "Frutiger" !important; */
+}
+
+body {
+    background: #f0f0f075;
+    font-size: 15px;
+    color: #666;
+    font-family: "Roboto", sans-serif !important;
+}
+
+.a {
+    color: #000000 !important;
+    text-decoration: none;
+}
+
+.a::selection {
+    background-color: #000000 !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.ui {
+    font-family: "Furtiger" !important;
+}
+
+.global-font-family {
+    font-family: "Furtiger" !important;
+}
+
+.ui.menu {
+    font-size: 16px;
+}
+
+.home-search>input {
+    border-radius: 30px !important;
+    padding-left: 30px !important;
+}
+
+input[type="text"] {
+    padding-left: 40px !important;
+}
+
+input[type="text"]:hover {
+    /* box-shadow: 0 0 5pt 0.5pt #d3d3d3 !important; */
+}
+
+.ui.icon.input>i.icon {
+    left: 0 !important;
+}
+
+.ui.raised.link.card {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+
+/* card scroller */
+
+.menu-item {
+    padding: 0 40px;
+    margin: 5px 10px;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+}
+
+.menu-item.active {
+    border: 1px green solid;
+}
+
+.scroll-menu-arrow {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.ui.appbar {
+    background-color: white;
+    color: rgb(59, 59, 59);
+}
+
+.ui.appbar.logo {
+    height: 40px;
+    width: 40px;
+}
+
+.ui.appbar.link {
+    background-color: white;
+    color: rgb(59, 59, 59);
+}
+
+.appbartext {
+    font-size: 13px;
+}
+
+.titleItemRight {
+    float: "right";
+}
+
+.MuiIconButton-root:hover {
+    background-color: rgb(0 0 0 / 0%) !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+.rightToolbar {
+    margin-right: -12px;
+    margin-left: auto;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.home_title {
+    font-family: "Frutiger LT Pro 47" !important;
+    /* font-family: "roboto" !important; */
+    font-weight: normal !important;
+    font-size: 60px !important;
+    color: "white" !important;
+    text-align: "left" !important;
+}
+
+.home_subtitle {
+    font-family: "Frutiger LT Pro 47" !important;
+    /* font-family: "roboto" !important; */
+    font-weight: normal !important;
+    font-size: 35px !important;
+    color: "white" !important;
+    text-align: "left" !important;
+}
