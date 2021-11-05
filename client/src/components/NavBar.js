@@ -182,7 +182,7 @@ export const NavBar = () => {
             </Link>
           </IconButton>
           <IconButton>
-            <Link to="/about" className="ui appbar link">
+            <Link to="/leaderboard" className="ui appbar link">
               <LeaderboardIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">LeaderBoard</div>
             </Link>
@@ -200,7 +200,7 @@ export const NavBar = () => {
             </Link>
           </IconButton>
           <IconButton>
-            <Link to="/helpcenter" className="ui appbar link">
+            <Link to="/marketplace" className="ui appbar link">
               <MarketplaceIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">Marketplace</div>
             </Link>
