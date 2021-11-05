@@ -2,9 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home/home";
-import About from "./pages/LeaderBoard/about";
-import Contact from "./pages/contact";
-import Faq from "./pages/faq";
 import CreateEvent from "./pages/CreateEvent/createevent";
 import Kudos from "./pages/Kudos/kudos";
 
@@ -18,9 +15,6 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/faq" component={Faq} />
           <Route path="/createevent" component={CreateEvent} />
           <Route path="/kudos" component={Kudos} />
         </Switch>
