@@ -1,0 +1,9 @@
+.slick-prev:before,
+.slick-next:before {
+    color: #777777;
+}
+
+.event_cardspacing {
+    /* width: 100% !important; */
+    padding: 30px !important;
+}

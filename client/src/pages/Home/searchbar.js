@@ -11,16 +11,16 @@ class SearchBar extends Component {
       value: "",
       results: [],
 
-      searcharray: {
-        Events: {
-          name: "Events",
-          results: [],
-        },
-        Users: {
-          name: "Users",
-          results: [],
-        },
-      },
+      // searcharray: {
+      //   Events: {
+      //     name: "Events",
+      //     results: [],
+      //   },
+      //   Users: {
+      //     name: "Users",
+      //     results: [],
+      //   },
+      // },
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -35,7 +35,7 @@ class SearchBar extends Component {
       const isMatch = (result) => re.test(result.name);
 
       const filteredResults = _.reduce(
-        this.state.searcharray,
+        this.props.searcharray,
         (memo, data, name) => {
           const results = _.filter(data.results, isMatch);
           if (results.length) memo[name] = { name, results }; // eslint-disable-line no-param-reassign
@@ -80,31 +80,31 @@ class SearchBar extends Component {
   };
 
   componentDidMount() {
-    this.getUsers();
-    this.getEvents();
+    // this.getUsers();
+    // this.getEvents();
   }
 
-  getUsers = () => {
-    axios
-      .get("/api/users")
-      .then((usersres) => {
-        if (usersres.data) {
-          this.state.searcharray.Users.results = usersres.data;
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+  // getUsers = () => {
+  //   axios
+  //     .get("/api/users")
+  //     .then((usersres) => {
+  //       if (usersres.data) {
+  //         this.state.searcharray.Users.results = usersres.data;
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  getEvents = () => {
-    axios
-      .get("/api/events")
-      .then((eventsres) => {
-        if (eventsres.data) {
-          this.state.searcharray.Events.results = eventsres.data;
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+  // getEvents = () => {
+  //   axios
+  //     .get("/api/events")
+  //     .then((eventsres) => {
+  //       if (eventsres.data) {
+  //         this.state.searcharray.Events.results = eventsres.data;
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   render() {
     const { isLoading, value, results } = this.state;

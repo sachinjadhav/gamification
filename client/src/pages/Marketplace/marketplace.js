@@ -1,20 +1,12 @@
 import React, { Component } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Alert from "@mui/material/Alert";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { Container } from "semantic-ui-react";
 
+import { Icon, Grid, Divider, Card, Image } from "semantic-ui-react";
 // images import
-import placeholder from "../../assets/images/kudos/ecards/placeholder.png";
 import starinmaking from "../../assets/images/kudos/ecards/a_star_in_making.png";
 import congrats from "../../assets/images/kudos/ecards/congrats.png";
 import great_client_focus from "../../assets/images/kudos/ecards/great_client_focus.png";
@@ -30,77 +22,17 @@ import challenge from "../../assets/images/kudos/ecards/challenge.png";
 import competition from "../../assets/images/kudos/ecards/competition.png";
 import teamwork from "../../assets/images/kudos/ecards/teamwork.png";
 
+import trending_image1 from "../../assets/images/trending/azure1.png";
+import trending_image2 from "../../assets/images/trending/event1.png";
+
+import "./marketplace.css";
 class Marketplace extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectimage: placeholder,
-    };
-  }
-
-  itemData = [
-    {
-      img: starinmaking,
-      title: "Star in Making",
-    },
-    {
-      img: congrats,
-      title: "Congrats",
-    },
-    {
-      img: great_client_focus,
-      title: "Great Client Focus",
-    },
-    {
-      img: thanks,
-      title: "Thanks",
-    },
-    {
-      img: well_done,
-      title: "Well Done",
-    },
-    {
-      img: great_Innovation,
-      title: "Great Innovation",
-    },
-    {
-      img: team_collaboration,
-      title: "Team Collaboration",
-    },
-    {
-      img: thank_you_for_helping_me_to_grow,
-      title: "Thank you for helping me to grow",
-    },
-    {
-      img: what_a_great_advice,
-      title: "What a great advice",
-    },
-    {
-      img: you_have_hit_the_ground_running,
-      title: "You've hit the ground running",
-    },
-    {
-      img: goal,
-      title: "Goal",
-    },
-    {
-      img: competition,
-      title: "competition",
-    },
-    {
-      img: teamwork,
-      title: "teamwork",
-    },
-    {
-      img: challenge,
-      title: "challenge",
-    },
-  ];
-
-  imageClick = (title, image) => this.setState({ selectimage: image });
-
   render() {
-    return <></>;
+    return (
+      <>
+        <h2>Marketplace</h2>
+      </>
+    );
   }
 }
 
