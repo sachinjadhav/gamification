@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "616c44f998d39022c8fcdbc2"
+  },
+  "empid": "1",
+  "name": "Sachin Jadhav",
+  "email": "sachinjadhav123@gmail.com",
+  "rank": "Associate Director",
+  "location": "Pune",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Pune",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634485521,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634485521,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616c459898d39022c8fcdbc4"
+  },
+  "empid": "2",
+  "name": "Bhushan Ingle",
+  "email": "bhushan.k.ingle@gmail.com",
+  "rank": "Associate Director",
+  "location": "Pune",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Pune",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634485656,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634485656,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616c526b98d39022c8fcdbc5"
+  },
+  "empid": "3",
+  "name": "Rohit chandiramani",
+  "email": "rohitchandiramani@gmail.com",
+  "rank": "Authorize Officer",
+  "location": "Pune",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Pune",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634488939,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634488939,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616c528298d39022c8fcdbc6"
+  },
+  "empid": "4",
+  "name": "Amreshwar Rathi",
+  "email": "amreshwarrathi@gmail.com",
+  "rank": "Authorize Officer",
+  "location": "Pune",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Pune",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634488962,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634488962,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616f050bb466078658196b45"
+  },
+  "empid": "5",
+  "name": "Ashish Bhatia",
+  "email": "ashishbhatia@gmail.com",
+  "rank": "Authorize Officer",
+  "location": "Mumbai",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Mumbai",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634665739,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634665739,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616f0535b466078658196b46"
+  },
+  "empid": "6",
+  "name": "Upendra Dixit",
+  "email": "upendradixit@gmail.com",
+  "rank": "Authorize Officer",
+  "location": "Mumbai",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Mumbai",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634665781,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634665781,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "616f056db466078658196b47"
+  },
+  "empid": "7",
+  "name": "Sandeep Lawar",
+  "email": "sandeeplawar@gmail.com",
+  "rank": "Director",
+  "location": "Pune",
+  "organization": "XYZ",
+  "active": "Y",
+  "address": "EON IT Park, Pune",
+  "createdate": {
+    "$timestamp": {
+      "t": 1634665837,
+      "i": 1
+    }
+  },
+  "lastupdate": {
+    "$timestamp": {
+      "t": 1634665837,
+      "i": 2
+    }
+  }
+},{
+  "_id": {
+    "$oid": "61f627d86b2344e671990567"
+  },
+  "empid": 8,
+  "name": "Deepak Chandani",
+  "email": "deepak.chandani@gmail.com",
+  "rank": "CTO",
+  "location": "Pune, India",
+  "organization": "TechX",
+  "active": "Y",
+  "address": "Magarpatta, Pune, India",
+  "createdate": {
+    "$timestamp": {
+      "t": 1,
+      "i": 1632127709
+    }
+  }
+}]

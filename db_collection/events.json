@@ -1,0 +1,433 @@
+[{
+  "_id": {
+    "$oid": "6148a342a3522f52654fea81"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "gitlab",
+  "summary": "Cloud Migration for IBIT",
+  "description": "Cloud Migration for IBIT",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "cloud",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "migration",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "Cloud Migration"
+},{
+  "_id": {
+    "$oid": "616d1846ed96fbe279980b0d"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "AWS",
+  "summary": "Certified Foundation AWS",
+  "description": "Certified Foundation AWS",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "cloud",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "learning",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "AWS Certification"
+},{
+  "_id": {
+    "$oid": "616f05dcb466078658196b4a"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "Pune",
+  "summary": "Corporate Social Responsibility",
+  "description": "CSR - Plant trees, save world",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "CSR",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "csr",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "Corporate Social Responsibility"
+},{
+  "_id": {
+    "$oid": "616f067bb466078658196b4b"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "Global",
+  "summary": "Hackathon 2021",
+  "description": "Hackathon 2021 participate and win",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "hackathon",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "hackathon",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "Hackathon 2021"
+},{
+  "_id": {
+    "$oid": "616f06fab466078658196b4c"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "Global",
+  "summary": "TechFest",
+  "description": "Techfest 2021 India, Singapore, HK",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "techfest",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "hackathon",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "TechFest"
+},{
+  "_id": {
+    "$oid": "616f075cb466078658196b4d"
+  },
+  "_eventid": {
+    "$oid": "616d0793ed96fbe279980b0c"
+  },
+  "venue": "Global",
+  "summary": "Automation",
+  "description": "Create bots for future apps",
+  "registrationenddate": "31/10/2021",
+  "eventstartdate": "15/10/2021",
+  "eventenddate": "31/10/2021",
+  "coins": "100",
+  "status": "STARTED",
+  "tags": "automation",
+  "ispremierevent": "Y",
+  "cohost": "bhushan.k.ingle@gmail.com",
+  "listtoinvite": "",
+  "location": "India",
+  "goal": "automation",
+  "host": "sachinjadhav123@gmail.com",
+  "issubevent": "N",
+  "parenteventid": "",
+  "eventteams": {
+    "eventteamname": "",
+    "_teamid": {
+      "$oid": "6148a50aa3522f52654fea84"
+    }
+  },
+  "badge": {
+    "_badgeid": {
+      "$oid": "6148a539a3522f52654fea85"
+    },
+    "badgename": "",
+    "template": "",
+    "text": "",
+    "icon": "",
+    "color": "",
+    "badgevalue": "",
+    "category": "",
+    "badgefrequency": ""
+  },
+  "leaderboard": {
+    "_leaderboardid": {
+      "$oid": "6148a58aa3522f52654fea86"
+    },
+    "rank": "",
+    "username": "",
+    "column1": ""
+  },
+  "rules": {
+    "_ruleid": {
+      "$oid": "6148a628a3522f52654fea88"
+    },
+    "rulename": "",
+    "points": "",
+    "criteria": "",
+    "rulefrequency": ""
+  },
+  "comments": {
+    "_commentsid": {
+      "$oid": "6148a654a3522f52654fea89"
+    },
+    "empid": "",
+    "eventid": "",
+    "message": "",
+    "time": "",
+    "likelist": "",
+    "replies": ""
+  },
+  "name": "Automation"
+}]
