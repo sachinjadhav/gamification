@@ -54,4 +54,17 @@ router.get("/events", (req, res, next) => {
     .catch(next);
 });
 
+router.post("/events", (req, res, next) => {
+  console.log("inside", req.body);
+  if (req.body) {
+    Event.create(req.body)
+      .then((data) => res.json(data))
+      .catch(next);
+  } else {
+    res.json({
+      error: "The input field is empty",
+    });
+  }
+});
+
 module.exports = router;

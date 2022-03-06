@@ -22,24 +22,17 @@ import DatePicker from "@mui/lab/DatePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import TinyMceEditor from "./TinyMceEditor";
+import axios from "axios";
 
 import tagValue from "./staticData";
 const BasicFormValidation = () => {
   const initialValue = {
-    name: "",
+    eventname: "",
     summary: "",
     venue: "",
     tags: "",
     goal: "",
   };
-
-  const SUPPORTED_FORMATS = ["image/jpeg", "image/jpg", "image/png"];
-
-  const phoneNumberRegEx = /^[0-1]{2}[0-9]{9}/;
-  const PasswordRegEx =
-    /^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
-
-  // const [value, setValue] = React.useState(null);
 
   const [tags, setTags] = React.useState("");
 
@@ -48,7 +41,7 @@ const BasicFormValidation = () => {
   };
 
   const YupValidation = yup.object({
-    name: yup
+    eventname: yup
       .string()
       .min(3, "Too Short !")
       .max(30, "Too Long !")
@@ -86,6 +79,27 @@ const BasicFormValidation = () => {
   const handleSubmit = (values, props) => {
     console.log(values);
     // props.resetForm();
+
+    // axios
+    //   .post("/api/events", values)
+    //   .then((eventres) => {
+    //     console.log(eventres);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  };
+
+  // add event
+  const addEvent = (eventObj) => {
+    axios
+      .post("/api/events", eventObj)
+      .then((eventres) => {
+        console.log(eventres);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -100,7 +114,17 @@ const BasicFormValidation = () => {
                 initialValues={initialValue}
                 validationSchema={YupValidation}
                 onSubmit={(values) => {
-                  console.log("clicked", values);
+                  // console.log("clicked", values);
+                  const eventObj = {
+                    name: values.eventname,
+                    summary: values.summary,
+                    tags: "automation",
+                    description: values.summary,
+                    venue: values.venue,
+                    goal: values.goal,
+                  };
+
+                  addEvent(eventObj);
                 }}
                 // onSubmit={handleSubmit}
               >
@@ -110,18 +134,17 @@ const BasicFormValidation = () => {
                     <Form>
                       <Grid container spacing={2} mt={1}>
                         <Grid item sm={6}>
-                          <TextField
+                          <Field
+                            as={TextField}
                             label="Event Name"
-                            name="name"
+                            name="eventname"
                             fullWidth
                             variant="outlined"
                             margin="dense"
-                            value={name}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            helperText={<ErrorMessage name="name" />}
-                            error={props.errors.name && props.touched.name}
-                            required
+                            helperText={<ErrorMessage name="eventname" />}
+                            error={
+                              props.errors.eventname && props.touched.eventname
+                            }
                           />
                         </Grid>
                         <Grid item sm={6}>

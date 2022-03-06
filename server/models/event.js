@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const EventSchema = new Schema({
   eventid: {
     type: String,
-    required: [true],
+    required: [false],
   },
-  eventname: {
+  name: {
     type: String,
     required: [true],
   },
@@ -21,26 +21,26 @@ const EventSchema = new Schema({
   },
   description: {
     type: String,
-    required: [true],
+    required: [false],
   },
   registrationenddate: {
     type: Date,
-    required: [true],
+    required: [false],
   },
   eventstartdate: {
     type: Date,
-    required: [true],
+    required: [false],
   },
   eventenddate: {
     type: Date,
-    required: [true],
+    required: [false],
   },
   coins: {
     type: String,
   },
   status: {
     type: String,
-    required: [true],
+    required: [false],
   },
   tags: {
     type: String,
