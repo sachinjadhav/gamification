@@ -7,3 +7,21 @@
     /* width: 100% !important; */
     padding: 30px !important;
 }
+
+#badge-designer-overlay .badge-preview-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+
+/* 
+input[type="text"] {
+    padding-left: 0px;
+} */
+
+.badgename {
+    padding-left: 0px !important;
+}

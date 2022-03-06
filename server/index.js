@@ -9,6 +9,8 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+const swaggerUi = require("swagger-ui-express"),
+  swaggerDocument = require("./swagger.json");
 // Connect to the database
 mongoose
   .connect(process.env.DB, { useNewUrlParser: true })
@@ -46,6 +48,8 @@ app.use((err, req, res, next) => {
 // //POST
 // const rewardPostRoute = require("./RewardAPI/routes/rewardPost.js");
 // app.post("/api/reward/:action", cors(), rewardGetRoute.post);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

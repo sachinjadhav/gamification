@@ -37,30 +37,30 @@ const BasicFormValidation = () => {
       .min(8, "Password Should be minimum 8 character")
       .max(50, "Too long"),
 
-    phoneNumber: yup
-      .string()
-      .matches(phoneNumberRegEx, "Invalid Phone Number")
-      .max(11, "Invalid Phone Number")
-      .required("Required !"),
+    // phoneNumber: yup
+    //   .string()
+    //   .matches(phoneNumberRegEx, "Invalid Phone Number")
+    //   .max(11, "Invalid Phone Number")
+    //   .required("Required !"),
 
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password")], "Password does not matched")
       .required("Confirm Password is Required"),
 
-    image: yup
-      .mixed()
-      .required("File is Required")
-      .test(
-        "fileSize",
-        "File more than 0.5 MB not Allowed",
-        (value) => value && value.size <= 524288
-      )
-      .test(
-        "fileFormat",
-        "Unsupported Format",
-        (value) => value && SUPPORTED_FORMATS.includes(value.type)
-      ),
+    // image: yup
+    //   .mixed()
+    //   .required("File is Required")
+    //   .test(
+    //     "fileSize",
+    //     "File more than 0.5 MB not Allowed",
+    //     (value) => value && value.size <= 524288
+    //   )
+    //   .test(
+    //     "fileFormat",
+    //     "Unsupported Format",
+    //     (value) => value && SUPPORTED_FORMATS.includes(value.type)
+    //   ),
 
     // website: yup.string().url().required("Website is Required"),
 
@@ -69,8 +69,6 @@ const BasicFormValidation = () => {
 
   const handleSubmit = (values, props) => {
     console.log(values);
-    alert(JSON.stringify(values));
-
     props.resetForm();
   };
 
@@ -117,7 +115,7 @@ const BasicFormValidation = () => {
                       error={props.errors.email && props.touched.email}
                     />
 
-                    <Field
+                    {/* <Field
                       as={TextField}
                       label="Phone Number"
                       name="phoneNumber"
@@ -128,7 +126,7 @@ const BasicFormValidation = () => {
                       error={
                         props.errors.phoneNumber && props.touched.phoneNumber
                       }
-                    />
+                    /> */}
 
                     <Field
                       as={TextField}
@@ -157,7 +155,7 @@ const BasicFormValidation = () => {
                       }
                     />
 
-                    <TextField
+                    {/* <TextField
                       name="image"
                       type="file"
                       fullWidth
@@ -170,7 +168,7 @@ const BasicFormValidation = () => {
                       helperText={<ErrorMessage name="image" />}
                       error={props.errors.image && props.touched.image}
                       required
-                    />
+                    /> */}
 
                     <Button
                       variant="contained"

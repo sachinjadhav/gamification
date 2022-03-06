@@ -1,36 +1,137 @@
 import React, { Component } from "react";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { badges, badgeColor } from "./staticData";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import { CompactPicker } from "react-color";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { TextField } from "@mui/material";
 import { Container } from "semantic-ui-react";
-
-import { Icon, Grid, Divider, Card, Image } from "semantic-ui-react";
-// images import
-import starinmaking from "../../assets/images/kudos/ecards/a_star_in_making.png";
-import congrats from "../../assets/images/kudos/ecards/congrats.png";
-import great_client_focus from "../../assets/images/kudos/ecards/great_client_focus.png";
-import great_Innovation from "../../assets/images/kudos/ecards/great_Innovation.png";
-import team_collaboration from "../../assets/images/kudos/ecards/team_collaboration.png";
-import thank_you_for_helping_me_to_grow from "../../assets/images/kudos/ecards/thank_you_for_helping_me_to_grow.png";
-import thanks from "../../assets/images/kudos/ecards/thanks.png";
-import well_done from "../../assets/images/kudos/ecards/well_done.png";
-import what_a_great_advice from "../../assets/images/kudos/ecards/what_a_great_advice.png";
-import you_have_hit_the_ground_running from "../../assets/images/kudos/ecards/you_have_hit_the_ground_running.png";
-import goal from "../../assets/images/kudos/ecards/goal.png";
-import challenge from "../../assets/images/kudos/ecards/challenge.png";
-import competition from "../../assets/images/kudos/ecards/competition.png";
-import teamwork from "../../assets/images/kudos/ecards/teamwork.png";
-
-import trending_image1 from "../../assets/images/trending/azure1.png";
-import trending_image2 from "../../assets/images/trending/event1.png";
-
+import placeholder from "../../assets/images/kudos/ecards/placeholder.png";
+import ArenaBadge from "./ArenaBadge";
 import "./marketplace.css";
+
 class Marketplace extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      badges: [],
+      icons: [],
+      selectimage: placeholder,
+      template: "badge_1",
+    };
+  }
+
+  componentDidMount = () => {
+    this.setState({ badges: badges, badgeColor: "#22194D" });
+  };
+
+  imageClick = (image) => this.setState({ selectimage: image });
+
+  handleTextChange = (event) => {
+    this.setState({
+      text: event.target.value,
+    });
+  };
+
+  handleChangeComplete = (color) => {
+    this.setState({ badgeColor: color.hex });
+  };
+
   render() {
     return (
       <>
-        <h2>Marketplace</h2>
+        <div>
+          <Container>
+            <Box m={2} pt={3}>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <h2 class="ui header"> Badge Designer</h2>
+                  <ImageList
+                    sx={{ width: 500, height: 150 }}
+                    cols={3}
+                    rowHeight={100}
+                    variant="quilted"
+                  >
+                    {this.state.badges.map((badge, i) => (
+                      <div>
+                        <ImageListItem key={badge.img}>
+                          <img
+                            key={i}
+                            alt={badge.img}
+                            src={badge.img.default}
+                            className="overlay-template-img"
+                            height={100}
+                            width={100}
+                            loading="lazy"
+                            onClick={() =>
+                              this.setState({ template: badge.name })
+                            }
+                          />
+                        </ImageListItem>
+                      </div>
+                    ))}
+                  </ImageList>
+
+                  <Box m={2} pt={3}>
+                    <CompactPicker
+                      color={this.state.background}
+                      onChangeComplete={this.handleChangeComplete}
+                    />
+                  </Box>
+                  <Box m={2} pt={3}>
+                    <TextField
+                      className="badgenametextfield"
+                      label="Enter Badge name"
+                      name="badgename"
+                      fullWidth
+                      variant="standard"
+                      margin="dense"
+                      value={this.state.text}
+                      onChange={this.handleTextChange}
+                    />
+                  </Box>
+                </Grid>
+
+                <Grid item xs={6}>
+                  <h3 class="ui header"> Preview</h3>
+
+                  <Box
+                    sx={{
+                      // marginTop: 5,
+                      width: 450,
+                      height: 450,
+                      border: "1px  grey",
+                    }}
+                  >
+                    <div className="badge-preview-div">
+                      <div className="badge-preview-small">
+                        <ArenaBadge
+                          name={this.state.name}
+                          template={this.state.template}
+                          text={this.state.text}
+                          icon={"star"}
+                          colour={this.state.badgeColor}
+                          size={"small"}
+                        />
+                      </div>
+                      <div className="badge-preview-big">
+                        <ArenaBadge
+                          name={this.state.name}
+                          template={this.state.template}
+                          text={this.state.text}
+                          icon={"star"}
+                          colour={this.state.badgeColor}
+                          size={"big"}
+                        />
+                      </div>
+                    </div>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </div>
       </>
     );
   }

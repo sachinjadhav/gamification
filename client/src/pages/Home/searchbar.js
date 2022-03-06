@@ -111,6 +111,7 @@ class SearchBar extends Component {
 
     return (
       <Search
+        className="homeSearchEvent"
         input={{ fluid: true }}
         icon="search"
         placeholder="Search Events or Users ..."

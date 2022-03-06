@@ -27,11 +27,10 @@ import tagValue from "./staticData";
 const BasicFormValidation = () => {
   const initialValue = {
     name: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: "",
-    image: "",
+    summary: "",
+    venue: "",
+    tags: "",
+    goal: "",
   };
 
   const SUPPORTED_FORMATS = ["image/jpeg", "image/jpg", "image/png"];
@@ -40,7 +39,7 @@ const BasicFormValidation = () => {
   const PasswordRegEx =
     /^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
 
-  const [value, setValue] = React.useState(null);
+  // const [value, setValue] = React.useState(null);
 
   const [tags, setTags] = React.useState("");
 
@@ -48,49 +47,36 @@ const BasicFormValidation = () => {
     setTags(event.target.value);
   };
 
-  const YupValidation = yup.object().shape({
+  const YupValidation = yup.object({
     name: yup
       .string()
       .min(3, "Too Short !")
       .max(30, "Too Long !")
       .required("Required !"),
 
-    email: yup
+    summary: yup
       .string()
-      .email("Enter a Vaid Email")
-      .required("Email is Required"),
-
-    password: yup
-      .string()
-      .required("Enter Your Password")
-      .matches(PasswordRegEx, "Uppercase Lowercase Special char Required")
-      .min(8, "Password Should be minimum 8 character")
-      .max(50, "Too long"),
-
-    phoneNumber: yup
-      .string()
-      .matches(phoneNumberRegEx, "Invalid Phone Number")
-      .max(11, "Invalid Phone Number")
+      .min(3, "Too Short !")
+      .max(30, "Too Long !")
       .required("Required !"),
 
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password")], "Password does not matched")
-      .required("Confirm Password is Required"),
+    // venue: yup
+    //   .string()
+    //   .min(3, "Too Short !")
+    //   .max(30, "Too Long !")
+    //   .required("Required !"),
 
-    image: yup
-      .mixed()
-      .required("File is Required")
-      .test(
-        "fileSize",
-        "File more than 0.5 MB not Allowed",
-        (value) => value && value.size <= 524288
-      )
-      .test(
-        "fileFormat",
-        "Unsupported Format",
-        (value) => value && SUPPORTED_FORMATS.includes(value.type)
-      ),
+    // goal: yup
+    //   .string()
+    //   .min(3, "Too Short !")
+    //   .max(30, "Too Long !")
+    //   .required("Required !"),
+
+    // tags: yup
+    //   .string()
+    //   .min(3, "Too Short !")
+    //   .max(30, "Too Long !")
+    //   .required("Required !"),
 
     // website: yup.string().url().required("Website is Required"),
 
@@ -99,9 +85,7 @@ const BasicFormValidation = () => {
 
   const handleSubmit = (values, props) => {
     console.log(values);
-    alert(JSON.stringify(values));
-
-    props.resetForm();
+    // props.resetForm();
   };
 
   return (
@@ -115,7 +99,10 @@ const BasicFormValidation = () => {
               <Formik
                 initialValues={initialValue}
                 validationSchema={YupValidation}
-                onSubmit={handleSubmit}
+                onSubmit={(values) => {
+                  console.log("clicked", values);
+                }}
+                // onSubmit={handleSubmit}
               >
                 {(props) => {
                   const { name } = props.values;
@@ -141,14 +128,13 @@ const BasicFormValidation = () => {
                           <Field
                             as={TextField}
                             label="Summary"
-                            type="Summary"
-                            name="Summary"
+                            name="summary"
                             fullWidth
                             variant="outlined"
                             margin="dense"
                             helperText={<ErrorMessage name="Summary" />}
                             error={
-                              props.errors.Summary && props.touched.Summary
+                              props.errors.summary && props.touched.summary
                             }
                           />
                         </Grid>
@@ -158,7 +144,6 @@ const BasicFormValidation = () => {
                           <Field
                             as={TextField}
                             label="Venue"
-                            type="venue"
                             name="venue"
                             fullWidth
                             variant="outlined"
@@ -173,6 +158,7 @@ const BasicFormValidation = () => {
                             <Select
                               value={tags}
                               label="Tags"
+                              name="tags"
                               variant="outlined"
                               margin="dense"
                               onChange={handleChange}
@@ -201,7 +187,15 @@ const BasicFormValidation = () => {
                           />
                         </Grid>
                       </Grid>
-
+                      <Button
+                        variant="outlined"
+                        type="submit"
+                        color="primary"
+                        fullWidth
+                        onClick={handleSubmit}
+                      >
+                        Submit
+                      </Button>
                       <Grid container spacing={2} mt={1}>
                         <Grid item sm={12}>
                           <InputLabel id="demo-simple-select-helper-label">
@@ -211,16 +205,6 @@ const BasicFormValidation = () => {
                           </InputLabel>
                         </Grid>
                       </Grid>
-
-                      <Button
-                        variant="contained"
-                        type="submit"
-                        color="primary"
-                        fullWidth
-                        onClick={handleSubmit}
-                      >
-                        Submit
-                      </Button>
                     </Form>
                   );
                 }}
@@ -229,7 +213,7 @@ const BasicFormValidation = () => {
           </Paper>
         </Grid>
 
-        <Grid item sm={12}>
+        {/* <Grid item sm={12}>
           <Paper elevation={1}>
             <Box m={3} p={3}>
               <Grid container spacing={1}>
@@ -307,7 +291,16 @@ const BasicFormValidation = () => {
               </Formik>
             </Box>
           </Paper>
-        </Grid>
+        </Grid> */}
+        {/* <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          fullWidth
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button> */}
       </Grid>
     </Container>
   );

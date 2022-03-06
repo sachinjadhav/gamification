@@ -5,6 +5,7 @@ import Home from "./pages/Home/home";
 import CreateEvent from "./pages/CreateEvent/createevent";
 import Kudos from "./pages/Kudos/kudos";
 import Marketplace from "./pages/Marketplace/marketplace";
+import LeaderBoard from "./pages/LeaderBoard/leaderboard";
 
 import "./style.css";
 import "semantic-ui-css/semantic.min.css";
@@ -16,13 +17,14 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/createevent" component={CreateEvent} />
+          <Route path="/leaderboard" component={LeaderBoard} />
           <Route path="/kudos" component={Kudos} />
           <Route path="/marketplace" component={Marketplace} />
+          <Route path="/createevent" component={CreateEvent} />
         </Switch>
       </Router>
       <div className="Footer">
-        <p style={{ textAlign: "center" }}>Arena 2021. All Rights Reserved</p>
+        <p style={{ textAlign: "center" }}>Arena 2022. All Rights Reserved</p>
       </div>
     </div>
   );
