@@ -122,6 +122,11 @@ input[type="text"]:hover {
     height: 300px;
 }
 
+.event_list {
+    height: 300px;
+    width: 800px;
+}
+
 
 /* card scroller */
 

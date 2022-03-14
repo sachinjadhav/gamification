@@ -1,3 +1,32 @@
-input[type="text"] {
-    padding-left: 10px !important;
+.eventlist {
+    height: 150px !important;
+    width: 600px !important;
+}
+
+.eventlist:hover {
+    height: 150px !important;
+    width: 600px !important;
+    box-shadow: 0 16px 64px -16px rgba(46, 55, 77, 0.24) !important;
+}
+
+.ui.card {
+    box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px !important;
+}
+
+.eventsearch {}
+
+.ui.input>input {
+    border: 3px solid rgb(33 34 36 / 37%) !important;
+}
+
+.ui.celled.grid>.column:not(.row),
+.ui.celled.grid>.row>.column {
+    box-shadow: 0px 0 0 0 #ffffff !important;
+}
+
+
+/* background-color: f8f7fa */
+
+.ui[class*="internally celled"].grid>.row>.column:first-child {
+    background-color: f8f7fa !important;
 }

@@ -24,71 +24,47 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import TinyMceEditor from "./TinyMceEditor";
 import axios from "axios";
 
-import tagValue from "./staticData";
+import tagList from "./staticData";
+
+const YupValidation = yup.object({
+  eventname: yup
+    .string()
+    .min(3, "Too Short !")
+    .max(30, "Too Long !")
+    .required("Required !"),
+
+  summary: yup
+    .string()
+    .min(3, "Too Short !")
+    .max(30, "Too Long !")
+    .required("Required !"),
+
+  eventstartdate: yup.date().required("Required !"),
+  eventenddate: yup
+    .date()
+    .min(yup.ref("eventstartdate"), ({ min }) => `Date needs to be before !!`),
+  registrationenddate: yup.date().required("Required !"),
+});
+
 const BasicFormValidation = () => {
+  const [eventstartdate, seteventstartdate] = React.useState(null);
+  const [eventenddate, seteventenddate] = React.useState(null);
+  const [registrationenddate, setregistrationenddate] = React.useState(null);
+
   const initialValue = {
     eventname: "",
     summary: "",
     venue: "",
     tags: "",
     goal: "",
+    registrationenddate: "",
+    eventstartdate: "",
+    eventenddate: "",
   };
 
-  const [tags, setTags] = React.useState("");
-
-  const handleChange = (event) => {
-    setTags(event.target.value);
-  };
-
-  const YupValidation = yup.object({
-    eventname: yup
-      .string()
-      .min(3, "Too Short !")
-      .max(30, "Too Long !")
-      .required("Required !"),
-
-    summary: yup
-      .string()
-      .min(3, "Too Short !")
-      .max(30, "Too Long !")
-      .required("Required !"),
-
-    // venue: yup
-    //   .string()
-    //   .min(3, "Too Short !")
-    //   .max(30, "Too Long !")
-    //   .required("Required !"),
-
-    // goal: yup
-    //   .string()
-    //   .min(3, "Too Short !")
-    //   .max(30, "Too Long !")
-    //   .required("Required !"),
-
-    // tags: yup
-    //   .string()
-    //   .min(3, "Too Short !")
-    //   .max(30, "Too Long !")
-    //   .required("Required !"),
-
-    // website: yup.string().url().required("Website is Required"),
-
-    // select: yup.string().required("Select a Option"),
-  });
-
-  const handleSubmit = (values, props) => {
-    console.log(values);
-    // props.resetForm();
-
-    // axios
-    //   .post("/api/events", values)
-    //   .then((eventres) => {
-    //     console.log(eventres);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-  };
+  // const handleSubmit = (values, props) => {
+  //   console.log(values);
+  // };
 
   // add event
   const addEvent = (eventObj) => {
@@ -114,14 +90,17 @@ const BasicFormValidation = () => {
                 initialValues={initialValue}
                 validationSchema={YupValidation}
                 onSubmit={(values) => {
-                  // console.log("clicked", values);
+                  console.log("clicked", values);
                   const eventObj = {
                     name: values.eventname,
                     summary: values.summary,
-                    tags: "automation",
+                    tags: values.tags,
                     description: values.summary,
                     venue: values.venue,
                     goal: values.goal,
+                    registrationenddate: values.registrationenddate,
+                    eventstartdate: values.eventstartdate,
+                    eventenddate: values.eventenddate,
                   };
 
                   addEvent(eventObj);
@@ -129,7 +108,18 @@ const BasicFormValidation = () => {
                 // onSubmit={handleSubmit}
               >
                 {(props) => {
-                  const { name } = props.values;
+                  const {
+                    classes,
+                    values,
+                    touched,
+                    errors,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    handleReset,
+                    setFieldValue,
+                  } = props;
                   return (
                     <Form>
                       <Grid container spacing={2} mt={1}>
@@ -138,12 +128,15 @@ const BasicFormValidation = () => {
                             as={TextField}
                             label="Event Name"
                             name="eventname"
+                            value={values.eventname}
                             fullWidth
                             variant="outlined"
                             margin="dense"
-                            helperText={<ErrorMessage name="eventname" />}
+                            helperText={
+                              touched.eventname ? errors.eventname : ""
+                            }
                             error={
-                              props.errors.eventname && props.touched.eventname
+                              touched.eventname && Boolean(errors.eventname)
                             }
                           />
                         </Grid>
@@ -152,13 +145,12 @@ const BasicFormValidation = () => {
                             as={TextField}
                             label="Summary"
                             name="summary"
+                            value={values.summary}
                             fullWidth
                             variant="outlined"
                             margin="dense"
-                            helperText={<ErrorMessage name="Summary" />}
-                            error={
-                              props.errors.summary && props.touched.summary
-                            }
+                            helperText={touched.summary ? errors.summary : ""}
+                            error={touched.summary && Boolean(errors.summary)}
                           />
                         </Grid>
                       </Grid>
@@ -178,21 +170,27 @@ const BasicFormValidation = () => {
                         <Grid item sm={6}>
                           <FormControl sx={{ m: 0.8 }} fullWidth>
                             <InputLabel>Tags</InputLabel>
-                            <Select
-                              value={tags}
+                            <Field
+                              as={Select}
                               label="Tags"
-                              name="tags"
-                              variant="outlined"
+                              name="Tags"
+                              value={values.tags}
+                              onChange={handleChange("tags")}
+                              helperText={touched.tags ? errors.tags : ""}
+                              error={touched.tags && Boolean(errors.tags)}
                               margin="dense"
-                              onChange={handleChange}
+                              variant="outlined"
+                              fullWidth
                             >
-                              {tagValue.map((tagValue) => (
-                                <MenuItem key={tagValue} value={tagValue}>
-                                  {tagValue}
+                              {tagList.map((option) => (
+                                <MenuItem
+                                  key={option.value}
+                                  value={option.value}
+                                >
+                                  {option.label}
                                 </MenuItem>
                               ))}
-                            </Select>
-                            {/* <FormHelperText>With label + helper text</FormHelperText> */}
+                            </Field>
                           </FormControl>
                         </Grid>
                       </Grid>
@@ -210,66 +208,21 @@ const BasicFormValidation = () => {
                           />
                         </Grid>
                       </Grid>
-                      <Button
-                        variant="outlined"
-                        type="submit"
-                        color="primary"
-                        fullWidth
-                        onClick={handleSubmit}
-                      >
-                        Submit
-                      </Button>
-                      <Grid container spacing={2} mt={1}>
-                        <Grid item sm={12}>
-                          <InputLabel id="demo-simple-select-helper-label">
-                            Description
-                            <Divider />
-                            <TinyMceEditor />
-                          </InputLabel>
-                        </Grid>
-                      </Grid>
-                    </Form>
-                  );
-                }}
-              </Formik>
-            </Box>
-          </Paper>
-        </Grid>
-
-        {/* <Grid item sm={12}>
-          <Paper elevation={1}>
-            <Box m={3} p={3}>
-              <Grid container spacing={1}>
-                <Grid item sm={4}>
-                  <Typography variant="h5">Event Dates</Typography>
-                </Grid>
-                <Grid item sm={4}>
-                  <FormControlLabel
-                    value="ongoingevent"
-                    control={<Switch color="secondary" />}
-                    label="Ongoing Event"
-                    labelPlacement="end"
-                  />
-                </Grid>
-              </Grid>
-              <Divider />
-              <Formik
-                initialValues={initialValue}
-                validationSchema={YupValidation}
-                onSubmit={handleSubmit}
-              >
-                {(props) => {
-                  const { name } = props.values;
-                  return (
-                    <Form>
                       <Grid container spacing={3} mt={1}>
                         <Grid item sm={4}>
                           <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                               label="Event Start Date"
-                              value={value}
+                              name="eventstartdate"
+                              value={eventstartdate ?? ""}
+                              defaultValue=""
+                              format="MM/dd/yyyy"
                               onChange={(newValue) => {
-                                setValue(newValue);
+                                seteventstartdate(newValue);
+                                setFieldValue(
+                                  "eventstartdate",
+                                  new Date(newValue)
+                                );
                               }}
                               renderInput={(params) => (
                                 <TextField {...params} />
@@ -281,14 +234,27 @@ const BasicFormValidation = () => {
                           <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                               label="Event End Date"
-                              value={value}
+                              name="eventenddate"
+                              value={eventenddate ?? ""}
+                              defaultValue=""
+                              format="MM/dd/yyyy"
                               onChange={(newValue) => {
-                                console.log(newValue + 5);
-                                setValue(newValue + 5);
+                                seteventenddate(newValue);
+                                setFieldValue(
+                                  "eventenddate",
+                                  new Date(newValue)
+                                );
                               }}
                               renderInput={(params) => (
                                 <TextField {...params} />
                               )}
+                              helperText={
+                                touched.eventenddate ? errors.eventenddate : ""
+                              }
+                              error={
+                                touched.eventenddate &&
+                                Boolean(errors.eventenddate)
+                              }
                             />
                           </LocalizationProvider>
                         </Grid>
@@ -297,9 +263,15 @@ const BasicFormValidation = () => {
                           <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                               label="Registration End Date"
-                              value={value}
+                              name="registrationenddate"
+                              format="MM/dd/yyyy"
+                              value={registrationenddate ?? ""}
                               onChange={(newValue) => {
-                                setValue(newValue);
+                                setregistrationenddate(newValue);
+                                setFieldValue(
+                                  "registrationenddate",
+                                  new Date(newValue)
+                                );
                               }}
                               renderInput={(params) => (
                                 <TextField {...params} />
@@ -308,13 +280,37 @@ const BasicFormValidation = () => {
                           </LocalizationProvider>
                         </Grid>
                       </Grid>
+
+                      <Grid container spacing={2} mt={1}>
+                        <Grid item sm={12}>
+                          <InputLabel id="demo-simple-select-helper-label">
+                            Description
+                            <Divider />
+                            <TinyMceEditor />
+                          </InputLabel>
+                        </Grid>
+                      </Grid>
+                      <Grid container spacing={2} mt={1}>
+                        <Grid item sm={12}>
+                          <Button
+                            variant="contained"
+                            type="submit"
+                            color="success"
+                            fullWidth
+                            onClick={handleSubmit}
+                          >
+                            Submit
+                          </Button>
+                        </Grid>
+                      </Grid>
                     </Form>
                   );
                 }}
               </Formik>
             </Box>
           </Paper>
-        </Grid> */}
+        </Grid>
+
         {/* <Button
           variant="contained"
           type="submit"

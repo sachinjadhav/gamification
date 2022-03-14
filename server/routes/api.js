@@ -55,7 +55,6 @@ router.get("/events", (req, res, next) => {
 });
 
 router.post("/events", (req, res, next) => {
-  console.log("inside", req.body);
   if (req.body) {
     Event.create(req.body)
       .then((data) => res.json(data))
