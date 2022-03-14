@@ -17,7 +17,6 @@ import {
   DialogContentText,
   DialogTitle,
   Slide,
-  Snackbar,
 } from "@mui/material";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as React from "react";
@@ -54,15 +53,8 @@ const BasicFormValidation = () => {
   const [eventstartdate, seteventstartdate] = React.useState(null);
   const [eventenddate, seteventenddate] = React.useState(null);
   const [registrationenddate, setregistrationenddate] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-  // const [open, setOpen] = React.useState(false);
-
-  const [state, setState] = React.useState({
-    open: false,
-    vertical: "top",
-    horizontal: "center",
-  });
-  const { vertical, horizontal, open } = state;
   const initialValue = {
     eventname: "",
     summary: "",
@@ -79,19 +71,11 @@ const BasicFormValidation = () => {
   // };
 
   const handleClickOpen = () => {
-    this.setOpen(true);
-  };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
-  const handleClick = (newState) => () => {
-    setState({ open: true, ...newState });
+    setOpen(true);
   };
 
   const handleClose = () => {
-    setState({ ...state, open: false });
+    setOpen(false);
   };
 
   // add event
@@ -111,22 +95,7 @@ const BasicFormValidation = () => {
     <div>
       <div>
         <div>
-          <Button
-            onClick={handleClick({
-              vertical: "top",
-              horizontal: "center",
-            })}
-          >
-            Event has been created
-          </Button>
-          <Snackbar
-            anchorOrigin={{ vertical, horizontal }}
-            open={open}
-            onClose={handleClose}
-            message="I love snacks"
-            key={vertical + horizontal}
-          />
-          {/* <Dialog
+          <Dialog
             open={open}
             keepMounted
             onClose={handleClose}
@@ -139,10 +108,10 @@ const BasicFormValidation = () => {
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
+              {/* <Button onClick={handleClose}>Cancel</Button> */}
               <Button onClick={handleClose}>Ok</Button>
             </DialogActions>
-          </Dialog> */}
+          </Dialog>
         </div>
       </div>
       <Container maxWidth="xlg">
