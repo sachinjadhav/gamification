@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./leaderboard.css";
+import "./listAllEvents";
 import Slider from "react-slick";
 import { Container } from "semantic-ui-react";
 import EllipsisText from "react-ellipsis-text";

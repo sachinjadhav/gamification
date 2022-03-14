@@ -30,11 +30,3 @@
 .ui[class*="internally celled"].grid>.row>.column:first-child {
     background-color: f8f7fa !important;
 }
-
-.ui.items>.item>.image>img {
-    display: block;
-    width: 100px !important;
-    height: 100px !important;
-    border-radius: 50px !important;
-    border: none;
-}

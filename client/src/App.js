@@ -6,6 +6,7 @@ import CreateEvent from "./pages/CreateEvent/createevent";
 import Kudos from "./pages/Kudos/kudos";
 import Marketplace from "./pages/Marketplace/marketplace";
 import LeaderBoard from "./pages/LeaderBoard/leaderboard";
+import AllEvents from "./pages/AllEvents/listAllEvents";
 
 import "./style.css";
 import "semantic-ui-css/semantic.min.css";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/kudos" component={Kudos} />
           <Route path="/marketplace" component={Marketplace} />
           <Route path="/createevent" component={CreateEvent} />
+          <Route path="/listallevents" component={AllEvents} />
         </Switch>
       </Router>
       <div className="Footer">

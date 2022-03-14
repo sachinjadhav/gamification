@@ -9,7 +9,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 
-import arena_logo from "../assets/logo/a9.png";
+// import arena_logo from "../assets/logo/a9.png";
+import arena_logo from "../assets/logo/bp.svg";
+
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import HomeIcon from "@mui/icons-material/Home";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
@@ -90,7 +92,7 @@ export const NavBar = () => {
             </Link>
           </IconButton>
           <IconButton>
-            <Link to="/createevent" className="ui appbar link">
+            <Link to="/" className="ui appbar link">
               <AccountBalanceIcon style={{ height: 30, width: 30 }} />
               <div className="appbartext">Points</div>
             </Link>

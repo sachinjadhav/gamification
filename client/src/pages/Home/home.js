@@ -14,6 +14,7 @@ import {
   Statistic,
   Dropdown,
 } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 import SearchBar from "./searchbar";
 import axios from "axios";
@@ -137,17 +138,29 @@ class Home extends Component {
         </div>
         <Divider hidden></Divider>
         <searchevents></searchevents>
+        <div>
+          <Container textAlign="left">
+            <h2 class="ui header eventstrendingdropdown">
+              Events
+              <Dropdown
+                // inline
+                // header=""
+                options={homeeventsoptions}
+                defaultValue={homeeventsoptions[0].value}
+                style={{ marginLeft: 10 }}
+              />
+            </h2>
+          </Container>
+
+          <Container textAlign="right">
+            <h4 class="ui header">
+              <Link to="/listAllEvents" className="ui appbar link">
+                View All Events
+              </Link>
+            </h4>
+          </Container>
+        </div>
         <Container>
-          <h2 class="ui header">
-            Events
-            <Dropdown
-              inline
-              header=""
-              options={homeeventsoptions}
-              defaultValue={homeeventsoptions[0].value}
-              style={{ marginLeft: 10 }}
-            />
-          </h2>
           <EventCards data={this.state.searcharray.Events} />
         </Container>
         <Divider hidden></Divider>

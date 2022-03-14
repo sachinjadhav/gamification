@@ -44,7 +44,7 @@ class EventCards extends Component {
                 <Card.Content extra>
                   <a>
                     <Icon name="user" />
-                    221 Friends
+                    221 Users
                   </a>
                 </Card.Content>
               </Card>
